@@ -14,7 +14,7 @@ import orderRouter from './routes/orderRoute.js';
 // App config
 const app = express();
 const port = 3183;
-connectDb();
+
 connectCloudinary();
 
 // Middlewares
@@ -37,4 +37,4 @@ app.get('/api',(req,res)=>{
 
 
 // Corrected listen method
-app.listen(port)
+connectDb().then(()=>{ app.listen(port)})
